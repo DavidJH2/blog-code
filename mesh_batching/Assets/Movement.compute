@@ -35,11 +35,16 @@ void CSMain (uint3 id : SV_DispatchThreadID) {
     _Properties[id.x].mat = mul(translation, mat);
 
     /* Just for demo gif.  Not actually very useful -- need to inverse rotation first.*/
+
+    float angVel = 0.1f;
+    float si = sin(angVel);
+    float co = cos(angVel);
+    
     float4x4 rotation = float4x4(
-        0.99985, 0, -0.01745, 0,
-        0,       1,  0,       0,
-        0.01745, 0,  0.99985, 0,
-        0,       0,  0,       1
+        co, 0, -si, 0,
+        0,  1,   0, 0,
+        si, 0,  co, 0,
+        0,  0,   0, 1
     );
     _Properties[id.x].mat = mul(_Properties[id.x].mat, rotation);
     
