@@ -3,6 +3,7 @@
         Tags { "RenderType" = "Opaque" }
 
         Pass {
+            CULL OFF
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
