@@ -34,13 +34,13 @@ void CSMain (uint3 id : SV_DispatchThreadID) {
     // Apply translation to existing matrix, which will be read in the shader.
     _Properties[id.x].mat = mul(translation, mat);
 
-    /* Just for demo gif.  Not actually very useful -- need to inverse rotation first.
+    /* Just for demo gif.  Not actually very useful -- need to inverse rotation first.*/
     float4x4 rotation = float4x4(
-        .999, -.01, 0, 0.1,
-        .01, .999, 0, 0.1,
-        0, 0, 1, 0.1,
-        0, 0, 0, 1
+        0.99985, 0, -0.01745, 0,
+        0,       1,  0,       0,
+        0.01745, 0,  0.99985, 0,
+        0,       0,  0,       1
     );
     _Properties[id.x].mat = mul(_Properties[id.x].mat, rotation);
-    */
+    
 }
